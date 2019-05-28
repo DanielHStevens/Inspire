@@ -7,7 +7,7 @@ export default class Todo {
   get TodoTemplate() {
     return `
     	<p><input class="form-check-input" type="checkbox" value="" id="unconnected">${this.doitem}<button
-					onclick="app.controllers.todo-controller.removeTodo('${this._id}')">X</button></p>
+					onclick="app.controllers.todo-controller.removeTodo('${this._id}')"><i class="fas fa-trash"></i></button></p>
     `
   }
 }

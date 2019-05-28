@@ -13,21 +13,23 @@ body{
    justify-content: space-between;
 }
 #quote-box{
-  align-self: center;
-  align-self: baseline;
-  align-content: center;
-  align-content: flex-end;
-  text-align: center;
   width: 50%;
   background-color: #ffff0036
 }
 .todo {
   background-color: #ffff0036;
-  align-self: flex-end;
   width: 25vw;
    min-width: 245px;
 }
 #weather {
  width: 10vw; 
- background-color: #ffff0036
+ background-color: #ffff0036;
+}
+.QQclass{
+  align-self: baseline;
+  justify-content: center;
+  justify-content: baseline;
+}
+.dig {
+  height: 50vh;
 }

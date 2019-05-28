@@ -6,34 +6,41 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Inspire</title>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+		integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+		integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body id="bg-image" class="container">
-	<div id="weather">
-		Weather
-	</div>
+<body id="bg-image" class="container-fluid">
+	<div class="row">
+		<div id="weather" class="col-2">
+			Weather
+		</div>
 
-	<div id="quote-box">
-		The Quote
-	</div>
-
-	<div class="todo">
-		A Todo List
-		<div id="todo-error"></div>
-		<form onsubmit="app.controllers.todoController.addTodo(event)"><input type="text" name="doitem" id="doitem"
-				required>
-			<button type="submit">Enter</button>
-		</form>
-
-
-
-
-
-		<div id="todos">
-			<!-- todo list goes here? -->
+		<div class="todo col offset-7">
+			A Todo List
+			<div id="todo-error"></div>
+			<form onsubmit="app.controllers.todoController.addTodo(event)"><input type="text" name="doitem" id="doitem"
+					required>
+				<button type="submit"><i class="fas fa-sign-in-alt"></i></button>
+			</form>
+			<div id="todos">
+				<!-- todo list goes here? -->
+			</div>
 		</div>
 	</div>
+	<div class="row dig"></div>
+	<div class="row QQclass">
+		<div class="col-12 QQclass">
+			<div id="quote-box">
+				The Quote
+			</div>
+		</div>
+	</div>
+
+
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
 	<script type="module" src="app/main.js"></script>

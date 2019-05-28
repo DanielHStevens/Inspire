@@ -47,6 +47,4 @@ export default class TodoController {
 		_todoService.removeTodo(todoId)
 	}
 
-
-
 }
