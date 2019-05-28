@@ -1,3 +1,5 @@
+import Todo from "../../models/todo.js";
+
 // @ts-ignore
 const todoApi = axios.create({
 	baseURL: 'https://bcw-sandbox.herokuapp.com/api/daniel/todos/',
@@ -23,6 +25,10 @@ export default class TodoService {
 		return _state.error
 	}
 
+	get TodoItem() {
+		return _state.todos.map(to => new Todo(to))
+	}
+
 	addSubscriber(prop, fn) {
 		_subscribers[prop].push(fn)
 	}
@@ -30,16 +36,17 @@ export default class TodoService {
 	getTodos() {
 		console.log("Getting the Todo List")
 		todoApi.get()
-			.then(res => {
-				// WHAT DO YOU DO WITH THE RESPONSE?
+			.then(doing => {
+				_setState('todos', new Todo(doing.data.doitem))
 			})
-			.catch(err => _setState('error', err.response.data))
+			.catch(err => _setState('error', err.response.data))  // Cannot read property 'data' of undefined
 	}
 
 	addTodo(todo) {
 		todoApi.post('', todo)
 			.then(res => {
 				// WHAT DO YOU DO AFTER CREATING A NEW TODO?
+				this.getTodos()
 			})
 			.catch(err => _setState('error', err.response.data))
 	}
@@ -49,6 +56,8 @@ export default class TodoService {
 		// Be sure to change the completed property to its opposite
 		// todo.completed = !todo.completed <-- THIS FLIPS A BOOL
 
+
+
 		todoApi.put(todoId, todo)
 			.then(res => {
 				//DO YOU WANT TO DO ANYTHING WITH THIS?
@@ -57,8 +66,11 @@ export default class TodoService {
 	}
 
 	removeTodo(todoId) {
-		// This one is on you to write.... 
-		// The http method is delete at the todoId
+		todoApi.delete(todoId)
+			.then(response => {
+				this.getTodos()
+			})
 	}
+
 
 }

@@ -29,7 +29,6 @@ export default class ImageService {
 		})
 	}
 	addSubscriber(prop, fn) {
-
 		_subscribers[prop].push(fn)
 	}
 

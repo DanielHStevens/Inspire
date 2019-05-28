@@ -4,6 +4,13 @@ const _todoService = new TodoService()
 
 function _drawTodos() {
 	//WHAT IS MY PURPOSE?
+	let _todos = _todoService.TodoItem
+	let template = ''
+	for (let i = 0; i < _todos.length; i++) {
+		let _todo = _todos[i];
+		template += _todo.TodoTemplate
+	}
+	document.getElementById('todos').innerHTML = template
 }
 
 function _drawError() {
@@ -17,6 +24,7 @@ export default class TodoController {
 		_todoService.addSubscriber('error', _drawError)
 		_todoService.getTodos()
 		// Don't forget to add your subscriber
+		_todoService.addSubscriber('todo', _drawTodos)
 	}
 
 	addTodo(e) {
@@ -24,8 +32,8 @@ export default class TodoController {
 		var form = e.target
 		var todo = {
 			// DONT FORGET TO BUILD YOUR TODO OBJECT
+			doitem: form.doitem.value,
 		}
-
 		_todoService.addTodo(todo)
 	}
 

@@ -9,20 +9,25 @@
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body id="bg-image">
+<body id="bg-image" style="d-flex;">
 	<div id="weather">
 		Your Weather Template
 	</div>
 
-	<div id="quote">
+	<div id="quote-box">
 		The Quote
 	</div>
 
-	<div>
+	<div class="todo">
 		A Todo List
 		<div id="todo-error"></div>
-		<form onsubmit=""></form>
-		<div id="todos"></div>
+		<form onsubmit="app.controllers.todoController.addTodo(event)"><input type="text" name="doitem" id="doitem"
+				required>
+			<button type="submit">Enter</button>
+		</form>
+		<div id="todos">
+
+		</div>
 	</div>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
