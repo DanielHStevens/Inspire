@@ -5,8 +5,13 @@ export default class Todo {
     this._id = data._id
   }
   get TodoTemplate() {
+    let checked = ''
+    if (this.completed) {
+      // change the value of checked
+      checked = 'checked'
+    }
     return `
-    	<p><input class="form-check-input" type="checkbox" value="" checked="${this.completed}" onclick="app.controllers.todoController.toggleTodoStatus('${this._id}')">${this.description}<button
+    	<p><input class="form-check-input" type="checkbox" ${checked} onclick="app.controllers.todoController.toggleTodoStatus('${this._id}')">${this.description}<button
           onclick="app.controllers.todoController.removeTodo('${this._id}')"><i class="fas fa-trash"></i></button></p>
     `
   }

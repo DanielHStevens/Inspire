@@ -34,7 +34,7 @@ export default class TodoService {
 	}
 
 	getTodos() {
-		console.log("Getting the Todo List")
+		// console.log("Getting the Todo List")
 		todoApi.get()
 			.then(res => {
 				console.log(res)

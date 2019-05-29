@@ -37,7 +37,7 @@ export default class TodoController {
 	}
 
 	toggleTodoStatus(todoId) {
-		console.log(todoId)
+
 		_todoService.toggleTodoStatus(todoId)
 	}
 

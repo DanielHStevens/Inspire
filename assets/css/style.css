@@ -37,3 +37,6 @@ body{
 .dig {
   height: 55vh;
 }
+.col-10 {
+  max-height: 15vh;
+}
