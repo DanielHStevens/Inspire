@@ -24,21 +24,20 @@ export default class TodoController {
 		_todoService.addSubscriber('error', _drawError)
 		_todoService.getTodos()
 		// Don't forget to add your subscriber
-		_todoService.addSubscriber('todo', _drawTodos)
+		_todoService.addSubscriber('todos', _drawTodos)
 	}
 
 	addTodo(e) {
 		e.preventDefault()
 		var form = e.target
 		var todo = {
-			// DONT FORGET TO BUILD YOUR TODO OBJECT
-			doitem: form.doitem.value,
+			description: form.doitem.value,
 		}
 		_todoService.addTodo(todo)
 	}
 
 	toggleTodoStatus(todoId) {
-		// asks the service to edit the todo status
+		console.log(todoId)
 		_todoService.toggleTodoStatus(todoId)
 	}
 

@@ -24,13 +24,13 @@
 			<div class="todo col offset-8">
 				A Todo List
 				<div id="todo-error"></div>
-				<div class="input-group">
-					<div class="input-group-prepend">
-						<button type="submit"><i class="fas fa-sign-in-alt"></i></button>
+				<form onsubmit="app.controllers.todoController.addTodo(event)">
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<button type="submit"><i class="fas fa-sign-in-alt"></i></button>
+						</div>
+						<input type="text" name="doitem" id="doitem" required placeholder="ToDo">
 					</div>
-					<form onsubmit="app.controllers.todoController.addTodo(event)"><input type="text" name="doitem" id="doitem"
-							required placeholder="ToDo">
-				</div>
 				</form>
 
 				<div id="todos">

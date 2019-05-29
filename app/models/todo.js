@@ -1,13 +1,13 @@
 export default class Todo {
   constructor(data) {
-    this.doitem = data.doitem
-    this.response = data.response
-    this._id = this._id
+    this.description = data.description
+    this.completed = data.completed
+    this._id = data._id
   }
   get TodoTemplate() {
     return `
-    	<p><input class="form-check-input" type="checkbox" value="" id="unconnected">${this.doitem}<button
-					onclick="app.controllers.todo-controller.removeTodo('${this._id}')"><i class="fas fa-trash"></i></button></p>
+    	<p><input class="form-check-input" type="checkbox" value="" checked="${this.completed}" onclick="app.controllers.todoController.toggleTodoStatus('${this._id}')">${this.description}<button
+          onclick="app.controllers.todoController.removeTodo('${this._id}')"><i class="fas fa-trash"></i></button></p>
     `
   }
 }

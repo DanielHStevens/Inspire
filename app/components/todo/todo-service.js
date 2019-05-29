@@ -36,25 +36,32 @@ export default class TodoService {
 	getTodos() {
 		console.log("Getting the Todo List")
 		todoApi.get()
-			.then(doing => {
-				_setState('todos', new Todo(doing.data.doitem))
+			.then(res => {
+				console.log(res)
+				let apiTodos = res.data.data
+				// every element in the apiTodos needs to be turned into an instance of a Todo
+				let todoList = apiTodos.map(d => new Todo(d))
+				_setState('todos', todoList)
 			})
-			.catch(err => _setState('error', err.response.data))  // Cannot read property 'data' of undefined
+			.catch(err => _setState('error', err))
 	}
 
 	addTodo(todo) {
+		/**
+		 * { description: 'whatever the user enetered'}
+		 */
 		todoApi.post('', todo)
 			.then(res => {
-				// WHAT DO YOU DO AFTER CREATING A NEW TODO?
 				this.getTodos()
 			})
-			.catch(err => _setState('error', err.response.data))
+			.catch(err => _setState('error', err))
 	}
 
 	toggleTodoStatus(todoId) {
 		let todo = _state.todos.find(todo => todo._id == todoId)
 		// Be sure to change the completed property to its opposite
-		// todo.completed = !todo.completed <-- THIS FLIPS A BOOL
+		todo.completed = !todo.completed /*<-- THIS FLIPS A BOOL*/
+
 
 
 
@@ -62,7 +69,7 @@ export default class TodoService {
 			.then(res => {
 				//DO YOU WANT TO DO ANYTHING WITH THIS?
 			})
-			.catch(err => _setState('error', err.response.data))
+			.catch(err => _setState('error', err))
 	}
 
 	removeTodo(todoId) {
