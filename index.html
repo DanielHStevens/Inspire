@@ -15,30 +15,43 @@
 
 <body id="bg-image" class="container-fluid">
 	<div class="row">
+
 		<div id="weather" class="col-2">
 			Weather
 		</div>
 
-		<div class="todo col offset-7">
-			A Todo List
-			<div id="todo-error"></div>
-			<form onsubmit="app.controllers.todoController.addTodo(event)"><input type="text" name="doitem" id="doitem"
-					required>
-				<button type="submit"><i class="fas fa-sign-in-alt"></i></button>
-			</form>
-			<div id="todos">
-				<!-- todo list goes here? -->
+		<div class="col-10">
+			<div class="todo col offset-8">
+				A Todo List
+				<div id="todo-error"></div>
+				<div class="input-group">
+					<div class="input-group-prepend">
+						<button type="submit"><i class="fas fa-sign-in-alt"></i></button>
+					</div>
+					<form onsubmit="app.controllers.todoController.addTodo(event)"><input type="text" name="doitem" id="doitem"
+							required placeholder="ToDo">
+				</div>
+				</form>
+
+				<div id="todos">
+					<!-- todo list goes here? -->
+				</div>
 			</div>
 		</div>
 	</div>
+
 	<div class="row dig"></div>
+
 	<div class="row QQclass">
-		<div class="col-12 QQclass">
+		<div class="col-6 QQclass">
 			<div id="quote-box">
 				The Quote
 			</div>
 		</div>
 	</div>
+
+
+
 
 
 

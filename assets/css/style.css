@@ -13,8 +13,11 @@ body{
    justify-content: space-between;
 }
 #quote-box{
-  width: 50%;
-  background-color: #ffff0036
+  /* width: 50%; */
+  background-color: #ffff0036;
+  text-align: center;
+  align-self: center;
+  justify-self: baseline, center;
 }
 .todo {
   background-color: #ffff0036;
@@ -29,7 +32,8 @@ body{
   align-self: baseline;
   justify-content: center;
   justify-content: baseline;
+  align-content: center;
 }
 .dig {
-  height: 50vh;
+  height: 55vh;
 }
